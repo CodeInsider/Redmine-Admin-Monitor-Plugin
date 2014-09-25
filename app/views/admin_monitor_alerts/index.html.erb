@@ -7,8 +7,8 @@
         <tr>
             <td>
                 <%= link_to condition_colored('All',@conditions), admin_monitor_alerts_path %> |
-                <%= link_to condition_colored('Handled',@conditions), admin_monitor_alerts_path(:conditions => 'true') %> | 
-                <%= link_to condition_colored('Not Handled',@conditions), admin_monitor_alerts_path(:conditions => 'false') %>
+                <%= link_to condition_colored('Handled',@conditions), admin_monitor_alerts_path(:conditions => 1 %> | 
+                <%= link_to condition_colored('Not Handled',@conditions), admin_monitor_alerts_path(:conditions => 0) %>
             </td>
             <td style="float:right">
                 <%= legend %>
