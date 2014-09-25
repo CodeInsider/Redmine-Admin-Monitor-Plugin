@@ -13,9 +13,9 @@ module AdminMonitorAlertsHelper
 		case cnd
 		
 		when "Handled"
-			style = param.eql?('true') ? "font-weight:bold" : ""
+			style = param.eql?(1) ? "font-weight:bold" : ""
 		when "Not Handled"
-			style = param.eql?('false')	? "font-weight:bold" : ""
+			style = param.eql?(0)	? "font-weight:bold" : ""
 		when 'All'
 			style = param.eql?('') ? "font-weight:bold" : ""
 		end
