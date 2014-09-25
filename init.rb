@@ -7,7 +7,7 @@ Redmine::Plugin.register :redmine_admin_monitor do
   author_url 'http://example.com/about'
 
   menu :top_menu, :admin_monitor, { :controller => '/admin_monitor_alerts', 
-    :action => 'index',:conditions => 'false' },
+    :action => 'index',:conditions => 0 },
     :caption => :admin_monitor ,
     :if => Proc.new { User.current.admin? }
 
