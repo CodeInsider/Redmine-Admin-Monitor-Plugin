@@ -57,17 +57,18 @@ class AdminMonitorAlertsController < ApplicationController
   end
 
   def index
-    @conditions = case params[:conditions]
+    @conditions = params[:conditions] || ''
+    @conditionsString = case @conditions
       when 0
-        "#{AdminMonitorAlert.table_name}.handle_flag = #{quoted_false}"
+        "#{AdminMonitorAlert.table_name}.handle_flag = #{ActiveRecord::Base.connection.quoted_false}"
       when 1
-        "#{AdminMonitorAlert.table_name}.handle_flag = #{quoted_true}"
+        "#{AdminMonitorAlert.table_name}.handle_flag = #{ActiveRecord::Base.connection.quoted_true}"
       else
         ''
     end
     @pages, @admin_monitor_alerts = paginate :admin_monitor_alert,
     :per_page => 15 ,
-    :conditions => @conditions, 
+    :conditions => @conditionsString, 
     :order => "#{AdminMonitorAlert.table_name}.created_on DESC"
   end
 
